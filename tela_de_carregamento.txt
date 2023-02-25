@@ -1,0 +1,87 @@
+<!--PreLoader-->
+<div id="preloader">
+        
+    <div id="status">&nbsp;</div>
+    <div class="loader">
+
+            <span class="carregando"></span>
+            <span class="title">Carregando...</span>
+
+    </div>
+
+</div>
+<!--PreLoader-->
+
+
+
+CSS para nossa tela de carregamento
+
+:root {
+  --cor-amarelo: #ffef00;
+  --cor-preto: #000000;
+  --cor-gelo: #f4f4f4;
+}
+body { background-color:var(--cor-preto); }
+h1   { font-family: arial; font-weight: lighter; text-align:center; margin: 100PX auto; color: var(--cor-gelo); }
+div#preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--cor-preto);
+  z-index: 99999;
+}
+.loader .title {
+  color: var(--cor-amarelo);
+  font-size: 14px;
+  letter-spacing: 2px;
+  font-weight: lighter;
+  text-align: center;
+  font-family: arial;
+}
+.loader {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top:-50px; 
+  margin-left:-50px;
+}
+/*Carregando*/
+.carregando {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: block;
+  margin-bottom: 10%;
+  margin-left: 18%;
+  border-top: 3px solid var(--cor-amarelo);
+  border-right: 3px solid transparent;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+} 
+
+
+Javascript  
+
+script.js  ( salvar como)
+
+$(window).load(function() { // Garante que todo o site seja carregado
+  $('#status').fadeOut(); // primeiro desaparecerá a animação de carregamento
+  $('#preloader').delay(350).fadeOut('slow'); // desaparecerá o DIV branco que cobre o site.
+  $('body').delay(350).css({'overflow':'visible'});
+})
+
+
+
+
+<script src="js/jquery.js"></script>
+<script src="js/script.js"></script>
